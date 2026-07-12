@@ -24,6 +24,6 @@ jobs:
       run: echo "VERSION=$(date +'%Y-%m-%d-%H%M%S')" >> $GITHUB_ENV
 
     - name: Build and push image
-      run:
+      run: |
         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/hello-world:${{ env.VERSION }} .
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/hello-world:${{ env.VERSION }}
